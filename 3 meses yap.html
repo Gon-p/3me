@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felices 3 meses Mi Amor | BCode</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #8f0eb6;
+            --gold-dark: #72139e;
+            --wine: #722f37;
+            --wine-dark: #5a242b;
+            --cream: #f5e8c9;
+            --dark: #0a050f;
+            --dark-light: #1a0f1a;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .decoration-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            position: relative;
+            z-index: 10;
+            padding: 0;
+        }
+
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(4.5rem, 11vw, 8rem);
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(108, 14, 121, 0.8);
+            animation: pulse 3s infinite;
+            line-height: 1.1;
+            padding: 0;
+            letter-spacing: 1px;
+        }
+
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 15px rgba(126, 15, 148, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                text-shadow: 0 0 50px rgba(125, 11, 153, 0.9), 0 0 80px rgba(130, 11, 141, 0.7);
+                transform: scale(1.02);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(128, 5, 139, 0.5);
+                transform: scale(1);
+            }
+        }
+
+        .subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--cream);
+            margin-bottom: 60px;
+            font-weight: 400;
+            padding: 0;
+            max-width: 100%;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .btn-surprise {
+            background: linear-gradient(45deg, var(--wine), var(--wine-dark));
+            color: var(--gold);
+            padding: 20px 50px;
+            border-radius: 50px;
+            border: 2px solid var(--gold);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            z-index: 20;
+        }
+
+        .btn-surprise:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(114, 47, 55, 0.6);
+            background: linear-gradient(45deg, var(--wine-dark), var(--wine));
+            color: var(--cream);
+        }
+
+        .btn-surprise::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 30px;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(25deg);
+            transition: all 0.6s;
+        }
+
+        .btn-surprise:hover::after {
+            left: 120%;
+        }
+
+        .counter-section {
+            padding: 100px 20px;
+            background: rgba(15, 5, 15, 0.7);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.6);
+            width: 100%;
+            margin: 0;
+        }
+
+        .counter-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 70px;
+            position: relative;
+            padding: 0;
+            letter-spacing: 1px;
+            animation: fade-down 0.8s ease-out forwards;
+        }
+
+        @keyframes fade-down {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .counter-title::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            border-radius: 2px;
+        }
+
+        .counter-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 100%;
+            padding: 0;
+        }
+
+        .counter-item {
+            padding: 40px 15px;
+            background: rgba(114, 47, 55, 0.25);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.45);
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            min-width: 0;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .counter-item:nth-child(1) { animation: fade-up 0.8s 0.1s ease-out forwards; }
+        .counter-item:nth-child(2) { animation: fade-up 0.8s 0.2s ease-out forwards; }
+        .counter-item:nth-child(3) { animation: fade-up 0.8s 0.3s ease-out forwards; }
+        .counter-item:nth-child(4) { animation: fade-up 0.8s 0.4s ease-out forwards; }
+        .counter-item:nth-child(5) { animation: fade-up 0.8s 0.5s ease-out forwards; }
+        .counter-item:nth-child(6) { animation: fade-up 0.8s 0.6s ease-out forwards; }
+
+        @keyframes fade-up {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .counter-item:hover {
+            transform: translateY(-15px) scale(1.03);
+            background: rgba(114, 47, 55, 0.35);
+            box-shadow: 0 25px 60px rgba(114, 47, 55, 0.6);
+        }
+
+        .counter-value {
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 0 25px rgba(230, 197, 103, 0.6);
+            letter-spacing: 1px;
+        }
+
+        .counter-label {
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--cream);
+            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            opacity: 0.85;
+        }
+
+        .time-display {
+            margin-top: 70px;
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
+            color: var(--cream);
+            padding: 0;
+            width: 100%;
+            opacity: 0;
+            animation: fade-up 0.8s 0.7s ease-out forwards;
+        }
+
+        .current-time {
+            display: inline-block;
+            background: rgba(114, 47, 55, 0.2);
+            padding: 20px 40px;
+            border-radius: 50px;
+            margin-top: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            max-width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            animation: pulseBorder 3s infinite;
+        }
+
+        @keyframes pulseBorder {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.2); }
+            70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+
+        .current-time span {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: clamp(2rem, 4.5vw, 2.8rem);
+            white-space: nowrap;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .signature {
+            margin: 100px 0;
+            text-align: center;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--gold);
+            font-family: 'Dancing Script', cursive;
+            padding: 0;
+            width: 100%;
+            opacity: 0;
+            animation: fade-up 0.8s 0.8s ease-out forwards;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 5, 15, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 800px;
+            width: 90%;
+            margin: 100px auto;
+            background: rgba(15, 5, 15, 0.9);
+            border-radius: 20px;
+            border: 3px solid var(--gold);
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.4);
+            padding: 60px 40px;
+            text-align: center;
+            animation: scaleIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1010;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3.5rem, 7vw, 5.5rem);
+            color: var(--gold);
+            margin-bottom: 40px;
+            text-shadow: 0 0 30px rgba(230, 197, 103, 0.8);
+        }
+
+        .modal-message {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            line-height: 1.8;
+            color: var(--cream);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 40px;
+            font-style: italic;
+            letter-spacing: 0.3px;
+            padding: 0 20px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 2.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1020;
+        }
+
+        .close-modal:hover {
+            transform: rotate(90deg) scale(1.2);
+            color: var(--cream);
+        }
+
+        .heart {
+            position: absolute;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            color: rgba(230, 197, 103, 0.3);
+            opacity: 0;
+            animation: fall 15s linear infinite;
+            z-index: 2;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .gold-flake {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: linear-gradient(45deg, var(--gold), var(--gold-dark));
+            border-radius: 50%;
+            animation: float 20s linear infinite;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        .modal-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1005;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 4rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 20;
+            opacity: 0.8;
+            transition: all 0.4s ease;
+        }
+
+        .scroll-down:hover {
+            opacity: 1;
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-25px) translateX(-50%); }
+            60% { transform: translateY(-15px) translateX(-50%); }
+        }
+
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: currentColor;
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .counter-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .counter-item {
+                padding: 30px 10px;
+            }
+            .current-time {
+                padding: 15px 30px;
+            }
+            .modal-content {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .counter-container {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+                padding: 0;
+            }
+            .counter-title::after {
+                width: 120px;
+            }
+            .current-time {
+                padding: 12px 20px;
+                font-size: 1.5rem;
+            }
+            .current-time span {
+                font-size: 1.8rem;
+            }
+            .btn-surprise {
+                padding: 15px 40px;
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration-container" id="decoration-container"></div>
+
+    <div class="scroll-down" id="scrollDown">
+        <svg class="icon" viewBox="0 0 24 24">
+            <path d="M6 9l6 6 6-6"/>
+        </svg>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Felices 3 meses Mi Amor</h1>
+            <div class="subtitle">Cada momento contigo es un regalo del destino</div>
+            
+            <button class="btn-surprise" id="btnSurprise">
+                <svg class="icon" viewBox="0 0 24 24">
+                    <path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 110-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 100-5C13 2 12 7 12 7z"/>
+                </svg>
+                Click aqui amol
+            </button>
+        </header>
+        
+        <section class="counter-section">
+            <h2 class="counter-title">Nuestro Tiempo Juntos</h2>
+            <div class="counter-container">
+                <div class="counter-item">
+                    <div class="counter-value" id="years">00</div>
+                    <div class="counter-label">Años</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="months">00</div>
+                    <div class="counter-label">Mes</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="days">00</div>
+                    <div class="counter-label">Días</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="hours">00</div>
+                    <div class="counter-label">Horas</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="minutes">00</div>
+                    <div class="counter-label">Minutos</div>
+                </div>
+                <div class="counter-item">
+                    <div class="counter-value" id="seconds">00</div>
+                    <div class="counter-label">Segundos</div>
+                </div>
+            </div>
+            
+            <div class="time-display">
+                <p>En este preciso instante:</p>
+                <div class="current-time">
+                    <svg class="icon" viewBox="4, 13, 00, 25">
+                        <path d="M3 5h18v14H3zM16 3v2M8 3v2M3 9h18M12 15h2v2h-2z"/>
+                    </svg>
+                    <span id="current-date">6 de Marzo del 2025</span>
+                    &nbsp;&nbsp;&nbsp;
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span id="current-time">00:00:00</span>
+                </div>
+            </div>
+        </section>
+        
+        <div class="signature">Con todo mi amor, hoy y siempre</div>
+    </div>
+
+    <div class="modal" id="surpriseModal">
+        <div class="modal-hearts" id="modalHearts"></div>
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 class="modal-title">Para Ti, Mi Amor</h2>
+            <p class="modal-message">
+                Cada momento a tu lado es un regalo que atesoro con todo mi corazón. 
+                Hoy celebramos no solo nuestros 3 meses de noviecitos, sino cada sonrisa, cada risa, cada enojo, cada buenos y malos ratos, 
+                cada instante que hemos compartido juntos.
+            </p>
+            <div class="signature">Te amo muchote Andrea</div>
+        </div>
+    </div>
+    
+    <script>
+        function createDecorations() {
+            const container = document.getElementById('decoration-container');
+            const heartCount = 40;
+            const flakeCount = 60;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '💛';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.fontSize = `${Math.random() * 2 + 2.5}rem`;
+                heart.style.animationDelay = `${Math.random() * 15}s`;
+                heart.style.animationDuration = `${10 + Math.random() * 15}s`;
+                container.appendChild(heart);
+            }
+
+            for (let i = 0; i < flakeCount; i++) {
+                const flake = document.createElement('div');
+                flake.classList.add('gold-flake');
+                flake.style.left = `${Math.random() * 100}%`;
+                const size = 10 + Math.random() * 25;
+                flake.style.width = `${size}px`;
+                flake.style.height = `${size}px`;
+                if (Math.random() > 0.5) {
+                    flake.style.borderRadius = '3px';
+                    flake.style.transform = 'rotate(45deg)';
+                }
+                flake.style.animationDelay = `${Math.random() * 10}s`;
+                flake.style.animationDuration = `${15 + Math.random() * 25}s`;
+                container.appendChild(flake);
+            }
+        }
+
+        function createModalHearts() {
+            const container = document.getElementById('modalHearts');
+            const heartCount = 50;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '💜';
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.fontSize = `${Math.random() * 3 + 2}rem`;
+                const colors = ['#e6c567', '#d4af37', '#f5e8c9', '#c9a227'];
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.animationDelay = `${Math.random() * 10}s`;
+                heart.style.animationDuration = `${8 + Math.random() * 12}s`;
+                container.appendChild(heart);
+            }
+        }
+
+        function updateDateTime() {
+            const anniversaryDate = new Date(2025, 2, 6);
+
+            const now = new Date();
+            const diffTime = now.getTime() - anniversaryDate.getTime();
+
+            const diffSecondsTotal = Math.floor(diffTime / 1000);
+            const seconds = diffSecondsTotal % 60;
+            const diffMinutesTotal = Math.floor(diffSecondsTotal / 60);
+            const minutes = diffMinutesTotal % 60;
+            const diffHoursTotal = Math.floor(diffMinutesTotal / 60);
+            const hours = diffHoursTotal % 24;
+            const diffDaysTotal = Math.floor(diffHoursTotal / 24);
+
+            let tempDate = new Date(anniversaryDate);
+            let years = now.getFullYear() - tempDate.getFullYear();
+            let months = now.getMonth() - tempDate.getMonth();
+            let days = now.getDate() - tempDate.getDate();
+
+            if (days < 0) {
+                months--;
+                const prevMonth = new Date(now.getFullYear(), now.getMonth() - 1, 0);
+                days += prevMonth.getDate();
+            }
+
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours < 10 ? `0${hours}` : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? `0${minutes}` : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? `0${seconds}` : seconds;
+
+            document.getElementById('current-date').textContent = now.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('es-ES', {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            createDecorations();
+            createModalHearts();
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+
+            document.getElementById('scrollDown').addEventListener('click', function() {
+                window.scrollTo({
+                    top: document.querySelector('.counter-section').offsetTop,
+                    behavior: 'smooth'
+                });
+            });
+
+            const modal = document.getElementById('surpriseModal');
+            const btn = document.getElementById('btnSurprise');
+            const closeBtn = document.getElementById('closeModal');
+
+            btn.addEventListener('click', function() {
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            modal.addEventListener('wheel', function(e) {
+                const content = this.querySelector('.modal-content');
+                const isAtTop = content.scrollTop === 0;
+                const isAtBottom = content.scrollTop + content.clientHeight >= content.scrollHeight - 1;
+
+                if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
